@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio | Pallapati Saikrishna</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(120deg, #f5f7fa, #c3cfe2);
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #666;
+    }
+
+    section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    #about img {
+      display: block;
+      margin: 20px auto;
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul li {
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .project {
+      margin-bottom: 20px;
+    }
+
+    a {
+      color: #3498db;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+      font-size: 0.9em;
+      color: #555;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+      header h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Pallapati Saikrishna</h1>
+    <p>Aspiring Web Developer | Angular Certified</p>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <img src="C:/Users/My PC/Pictures/saee.png" alt="Saikrishna Photo" />
+    <p>I am a Computer Science Engineering student with a passion for web development. I’ve completed certifications in Angular, C, and Python and actively contribute to projects and internships to sharpen my skills.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>HTML & CSS</li>
+      <li>JavaScript</li>
+      <li>Angular</li>
+      <li>Python</li>
+      <li>MySQL</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>Landing Page</h3>
+      <p>A responsive landing page built with HTML and CSS as part of the CodSoft internship.</p>
+    </div>
+    <div class="project">
+      <h3>Calculator</h3>
+      <p>A JavaScript calculator with basic math operations and responsive UI.</p>
+    </div>
+  </section>
+
+  <section id="resume">
+    <h2>Resume</h2>
+    <p><a href="#" download>Download Resume (PDF)</a></p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: saikrishna@example.com</p>
+    <p>Phone: +91-XXXXXXXXXX</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Pallapati Saikrishna</p>
+  </footer>
+
+</body>
+</html>

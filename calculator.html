@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .calculator {
+            background-color: #2a2a2a;
+            border-radius: 12px;
+            padding: 20px;
+            width: 320px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .display {
+            width: 100%;
+            padding: 16px 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-align: right;
+            background-color: #333333;
+            color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .display span {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .button {
+            padding: 16px;
+            font-size: 20px;
+            text-align: center;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            color: #ffffff;
+        }
+
+        .button:hover {
+            background-color: #666666;
+        }
+
+        .number, .decimal, .zero {
+            background-color: #4a4a4a;
+        }
+
+        .number:hover, .decimal:hover, .zero:hover {
+            background-color: #666666;
+        }
+
+        .operator, .equals {
+            background-color: #f5923e;
+        }
+
+        .operator:hover, .equals:hover {
+            background-color: #ed822e;
+        }
+
+        .clear {
+            background-color: #a5a5a5;
+            color: #000000;
+        }
+
+        .clear:hover {
+            background-color: #909090;
+        }
+
+        .zero {
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="display"><span>0</span></div>
+        <div class="buttons">
+            <button class="button clear" onclick="handleClear()">C</button>
+            <button class="button operator" onclick="handleOperator('/')">÷</button>
+            <button class="button number" onclick="handleNumber('7')">7</button>
+            <button class="button number" onclick="handleNumber('8')">8</button>
+            <button class="button number" onclick="handleNumber('9')">9</button>
+            <button class="button operator" onclick="handleOperator('*')">×</button>
+            <button class="button number" onclick="handleNumber('4')">4</button>
+            <button class="button number" onclick="handleNumber('5')">5</button>
+            <button class="button number" onclick="handleNumber('6')">6</button>
+            <button class="button operator" onclick="handleOperator('-')">-</button>
+            <button class="button number" onclick="handleNumber('1')">1</button>
+            <button class="button number" onclick="handleNumber('2')">2</button>
+            <button class="button number" onclick="handleNumber('3')">3</button>
+            <button class="button operator" onclick="handleOperator('+')">+</button>
+            <button class="button number zero" onclick="handleNumber('0')">0</button>
+            <button class="button decimal" onclick="handleDecimal()">.</button>
+            <button class="button equals" onclick="handleCalculate()">=</button>
+        </div>
+    </div>
+    <script>
+        let display = document.querySelector('.display span');
+        let currentInput = '0';
+
+        const updateDisplay = () => display.textContent = currentInput;
+
+        const handleNumber = (number) => {
+            currentInput = (currentInput === '0' || currentInput === 'Infinity' || currentInput === '-Infinity' || isNaN(parseFloat(currentInput))) ? number : currentInput + number;
+            updateDisplay();
+        };
+
+        const handleDecimal = () => {
+            if (!currentInput.includes('.')) {
+                currentInput += '.';
+                updateDisplay();
+            }
+        };
+
+        const handleOperator = (operator) => {
+            if (currentInput !== '0' && currentInput !== '-' && !isNaN(parseFloat(currentInput)) && !['+', '-', '*', '/'].includes(currentInput.slice(-1))) {
+                currentInput += operator;
+                updateDisplay();
+            } else if (['+', '-', '*', '/'].includes(currentInput.slice(-1)) && operator !== currentInput.slice(-1)) {
+                currentInput = currentInput.slice(0, -1) + operator;
+                updateDisplay()
+            } else if (currentInput === '0' && operator === '-') {
+                currentInput = '-';
+                updateDisplay();
+            }
+        };
+
+        const handleCalculate = () => {
+            if (currentInput.length === 0 || ['+', '-', '*', '/'].includes(currentInput.slice(-1))) return;
+            try {
+                const result = new Function('return ' + currentInput.replace(/÷/g, '/').replace(/×/g, '*'))();
+                currentInput = String(result);
+                updateDisplay();
+            } catch (error) {
+                currentInput = 'Error';
+                updateDisplay();
+            }
+        };
+
+        const handleClear = () => {
+            currentInput = '0';
+            updateDisplay();
+        };
+    </script>
+</body>
+</html>

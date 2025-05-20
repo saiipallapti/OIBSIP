@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Oasis Infobyte Landing Page</title>
+  <style>
+    /* Reset and global styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    nav h1 {
+      font-size: 2rem;
+      color: #f39c12;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #f39c12;
+    }
+
+    .hero {
+      margin-top: 30px;
+      animation: fadeInMove 1.5s ease-in-out;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: #ddd;
+    }
+
+    .btn {
+      background-color: #f39c12;
+      color: #fff;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.2s;
+    }
+
+    .btn:hover {
+      background-color: #e67e22;
+      transform: scale(1.05);
+    }
+
+    section.features {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 60px 20px;
+      gap: 30px;
+      background: #2c3e50;
+    }
+
+    .features .box {
+      background: #34495e;
+      padding: 30px 20px;
+      border-radius: 12px;
+      text-align: center;
+      width: 250px;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .features .box:hover {
+      background: #3c597a;
+      transform: translateY(-10px);
+    }
+
+    .features .box h3 {
+      color: #f39c12;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background: #1a1a1a;
+      text-align: center;
+      padding: 20px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    @keyframes fadeInMove {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .features {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+
+  <script>
+    function mouseOverLink(element) {
+      element.style.color = "#e67e22";
+    }
+
+    function mouseOutLink(element) {
+      element.style.color = "";
+    }
+
+    function clickLink(linkName) {
+      alert(`You clicked on "${linkName}"`);
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>Oasis Infobyte</h1>
+      <ul>
+        <li><a href="#" 
+               onmouseover="mouseOverLink(this)" 
+               onmouseout="mouseOutLink(this)" 
+               onclick="clickLink('Home')">Home</a></li>
+        <li><a href="#" 
+               onmouseover="mouseOverLink(this)" 
+               onmouseout="mouseOutLink(this)" 
+               onclick="clickLink('About')">About</a></li>
+        <li><a href="#" 
+               onmouseover="mouseOverLink(this)" 
+               onmouseout="mouseOutLink(this)" 
+               onclick="clickLink('Projects')">Projects</a></li>
+        <li><a href="#" 
+               onmouseover="mouseOverLink(this)" 
+               onmouseout="mouseOutLink(this)" 
+               onclick="clickLink('Contact')">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hero">
+      <h2>Welcome to Oasis Infobyte</h2>
+      <p>Grow your career with real projects and mentorship.</p>
+      <a href="#" 
+         class="btn"
+         onmouseover="mouseOverLink(this)" 
+         onmouseout="mouseOutLink(this)" 
+         onclick="clickLink('Get Started')">Get Started</a>
+    </div>
+  </header>
+
+  <section class="features">
+    <div class="box">
+      <h3>Learn</h3>
+      <p>Access tutorials and guides curated by experts.</p>
+    </div>
+    <div class="box">
+      <h3>Build</h3>
+      <p>Hands-on projects to turn learning into skill.</p>
+    </div>
+    <div class="box">
+      <h3>Connect</h3>
+      <p>Join a vibrant developer community.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Oasis Infobyte. All rights reserved.</p>
+  </footer>
+</body>
+</html>
